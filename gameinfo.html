@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: The Investigation Begins</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .chapter-title {
+            font-size: 3em;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .fade-out {
+            animation: fadeOut 2s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="chapter-title" id="chapterTitle">Chapter 1: The Investigation Begins</div>
+
+    <script>
+        const chapterTitle = document.getElementById('chapterTitle');
+        let timer;
+
+        // Add fade-in effect
+        chapterTitle.classList.add('fade-in');
+
+        // Redirect to welcome.html after 5 seconds
+        timer = setTimeout(() => {
+            // Add fade-out effect
+            chapterTitle.classList.add('fade-out');
+            // Wait for fade-out animation to complete before redirecting
+            setTimeout(() => {
+                window.location.href = 'storyline.html';
+            }, 2000); // 2 seconds for fade-out animation
+        }, 5000); // 5 seconds for display
+    </script>
+</body>
+</html>

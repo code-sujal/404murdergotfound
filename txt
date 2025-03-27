@@ -1,0 +1,445 @@
+ <div class="desktop">
+        <div class="icon" onclick="openFolder('This PC')">
+            <img src="https://www.freeiconspng.com/thumbs/computer-icon/computer-icon--vista-hardware-devices-iconset--icons-land-17.png" alt="This PC"> <!-- Replace with a suitable icon URL -->
+            <p>This PC</p>
+        </div>
+        <div class="icon" onclick="openFolder('Recycle Bin')">
+            <img src="png-transparent-recycle-bin-logo-trash-recycling-bin-file-deletion-computer-file-recycle-bin-glass-recycling-waste-containment-thumbnail-removebg-preview.png" alt="Recycle Bin"> <!-- Replace with a suitable icon URL -->
+            <p>Recycle Bin</p>
+        </div>
+        <div class="icon" onclick="openFolder('Case Files')">
+            <img src="knife.jpeg" alt="Case Files"> <!-- Replace with a suitable icon URL -->
+            <p>Case Files</p>
+        </div>
+        <div class="icon" onclick="openFolder('Evidence')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="Evidence"> <!-- Replace with a suitable icon URL -->
+            <p>Evidence</p>
+        </div>
+        <div class="icon" onclick="openFolder('Suspects')">
+            <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="Suspects"> <!-- Replace with a suitable icon URL -->
+            <p>Suspects</p>
+        </div>
+        <h2 id="greeting">Welcome, Vigilante</h2>
+        <p class="popup">WARNING: Unauthorized access detected. System will shut down in <span id="timer">60:00</span>. Proceed with caution.</p>
+    </div>
+
+
+    <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt="Settings">
+    Settings
+
+    <img src="https://cdn-icons-png.flaticon.com/512/3466/3466202.png" alt="Vehicle Tracking">
+    Vehicle Registration
+
+
+    https://mailmeteor.com/logos/assets/PNG/Microsoft_Logo_512px.png
+
+
+
+
+    // Display current time on taskbar
+    const timeDisplay = document.getElementById('timeDisplay');
+    function updateTime() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        timeDisplay.innerText = `${hours}:${minutes}`;
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+});
+
+function toggleStartMenu() {
+    const startMenu = document.getElementById('startMenu');
+    startMenu.style.display = startMenu.style.display === 'none' || startMenu.style.display === '' ? 'flex' : 'none';
+}
+
+function openFolder(folderName) {
+    alert(`Opening ${folderName}...`);
+    // Add folder opening logic here
+}
+
+function openApp(appName) {
+    alert(`Opening ${appName} app...`);
+    // Add app opening logic here
+}
+</script>
+</body>
+</html>
+
+
+
+<div class="start-menu" id="startMenu">
+    <button onclick="openFolder('Settings')">
+        <img src="https://files.softicons.com/download/toolbar-icons/stainless-applications-icons-by-iconleak/ico/9.ico" alt="Settings"> <!-- Replace with a suitable icon URL -->
+        Settings
+    </button>
+    <button onclick="openFolder('Documents')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="Documents"> <!-- Replace with a suitable icon URL -->
+        Documents
+    </button>
+    <button onclick="openFolder('Pictures')">
+        <img src="picture.png" alt="Pictures"> <!-- Replace with a suitable icon URL -->
+        Pictures
+    </button>
+    <button onclick="openFolder('Satellite Connectivity')">
+        <img src="https://cdn-icons-png.flaticon.com/512/1042/1042820.png" alt="Satellite Connectivity"> <!-- Replace with a suitable icon URL -->
+        Satellite Connectivity
+    </button>
+    <button onclick="openFolder('Vehicle Tracking')">
+        <img src="https://cdn-icons-png.flaticon.com/512/3466/3466202.png" alt="Vehicle Tracking"> <!-- Replace with a suitable icon URL -->
+        Vehicle Tracking
+    </button>
+</div>
+
+
+<!-- Bootstrap JS and dependencies -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const name = localStorage.getItem('username');
+        const startTime = localStorage.getItem('startTime');
+        const timeLimit = 60 * 60 * 1000; // 1 hour in milliseconds
+
+        if (name) {
+            document.getElementById('greeting').textContent = `Welcome, ${name}`;
+        } else {
+            const username = prompt("Enter your username:");
+            if (username) {
+                localStorage.setItem('username', username);
+                localStorage.setItem('startTime', Date.now());
+                document.getElementById('greeting').textContent = `Welcome, ${username}`;
+            }
+        }
+
+        function updateTimer() {
+            const elapsedTime = Date.now() - parseInt(localStorage.getItem('startTime'), 10);
+            const remainingTime = Math.max(timeLimit - elapsedTime, 0);
+            const minutes = Math.floor(remainingTime / 60000);
+            const seconds = Math.floor((remainingTime % 60000) / 1000);
+            document.getElementById('timer').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            if (remainingTime <= 0) {
+                alert("Session expired. Please log in again.");
+                localStorage.removeItem('username');
+                localStorage.removeItem('startTime');
+                location.reload();
+            }
+        }
+
+        setInterval(updateTimer, 1000);
+
+        function updateTimeDisplay() {
+            const now = new Date();
+            document.getElementById('timeDisplay').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTimeDisplay, 1000);
+
+        window.toggleStartMenu = function() {
+            const startMenu = document.getElementById('startMenu');
+            startMenu.style.display = startMenu.style.display === 'flex' ? 'none' : 'flex';
+        };
+
+        window.openFolder = function(folderName) {
+            alert(`Opening ${folderName}`);
+        };
+
+        window.openApp = function(appName) {
+            alert(`Launching ${appName}`);
+        };
+    });
+</script>
+
+
+
+
+
+
+<!-- From Uiverse.io by satyamchaudharydev --> 
+<div class="card">
+    <span class="card__title">Subscribe</span>
+    <p class="card__content">Get fresh web design resources delivered straight to your inbox every week.
+    </p>
+    <div class="card__form">
+        <input type="text" id="otp" placeholder="Enter OTP">
+        <button class="sign-up" onclick="validateOTP()">Verify</button>
+    </div>
+</div>
+
+
+
+/* From Uiverse.io by satyamchaudharydev */ 
+.card {
+  width: 240px;
+  height: 254px;
+  padding: 0 15px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card__title {
+  font-size: 23px;
+  font-weight: 900;
+  color: #333;
+}
+
+.card__content {
+  font-size: 13px;
+  line-height: 18px;
+  color: #333;
+}
+
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card__form input {
+  margin-top: 10px;
+  outline: 0;
+  background: rgb(255, 255, 255);
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.6em;
+  border-radius: 14px;
+  border: 1px solid #333;
+  color: black;
+}
+
+.card__form button {
+  border: 0;
+  background: #111;
+  color: #fff;
+  padding: 0.68em;
+  border-radius: 14px;
+  font-weight: bold;
+}
+
+.sign-up:hover {
+  opacity: 0.8;
+} 
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Validation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            width: 400px;
+            background: linear-gradient(#212121, #212121) padding-box,
+                        linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+            border: 2px solid transparent;
+            padding: 32px 24px;
+            font-size: 14px;
+            font-family: inherit;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-sizing: border-box;
+            border-radius: 16px;
+        }
+
+        .form-container button:active {
+            scale: 0.95;
+        }
+
+        .form-container .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-container .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .form-container .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #717171;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .form-container .form-group input {
+            width: 90%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: #fff;
+            font-family: inherit;
+            background-color: transparent;
+            border: 1px solid #414141;
+        }
+
+        .form-container .form-group textarea {
+            width: 90%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            resize: none;
+            color: #fff;
+            height: 96px;
+            border: 1px solid #414141;
+            background-color: transparent;
+            font-family: inherit;
+        }
+
+        .form-container .form-group input::placeholder {
+            opacity: 0.5;
+        }
+
+        .form-container .form-group input:focus {
+            outline: none;
+            border-color: #e81cff;
+        }
+
+        .form-container .form-group textarea:focus {
+            outline: none;
+            border-color: #e81cff;
+        }
+
+        .form-container .form-submit-btn {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            align-self: flex-start;
+            font-family: inherit;
+            color: #000000;
+            font-weight: 600;
+            width: 40%;
+            background: #e9e7e7;
+            border: 1px solid #414141;
+            padding: 12px 16px;
+            font-size: inherit;
+            gap: 8px;
+            margin-top: 8px;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .form-container .form-submit-btn:hover {
+            background-color: #acacac;
+            border-color: #acacac;
+        }
+
+        #message {
+            color: white;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .warning-text{
+          font-size: 15px;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; height: 100vh; display: flex; align-items: center; justify-content: center; background: url('https://media3.giphy.com/media/11UhXwm8Ipd9C/giphy.webp?cid=ecf05e47cf14qpisjmueby3s31by8ra6deqktssp8kllok50&ep=v1_gifs_search&rid=giphy.webp&ct=g');">
+        <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div class="container">  
+                <h1 style="color:#212121;background-color: #fff; padding: 3px;">OTP Validation</h1>
+                
+                <div id="login-form" class="form-container">
+                    <form class="form" id="otp-form">
+                        <div class="form-group">
+                            <label for="otp-input">Request OTP</label>
+                            <input type="text" id="otp-input" name="otp" required placeholder="Enter your OTP code">
+                            <p class="warning-text">Request OTP from the volunteer nearby!</p>
+                        </div>
+                        <center><button class="form-submit-btn" type="submit">Validate</button></center>
+                    </form>
+                    <div id="message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize OTP and access status
+        const authObj = {
+            otp: "123454", // Fixed OTP for testing
+            accessStatus123: false
+        };
+
+        // Check if this is the first load of the page, otherwise get stored state
+        if (!localStorage.getItem("authObj")) {
+            localStorage.setItem("authObj", JSON.stringify(authObj));
+        }
+        
+        // OTP Form Handling
+        const otpForm = document.getElementById("otp-form");
+        const messageDiv = document.getElementById("message");
+
+        otpForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const enteredOTP = document.getElementById("otp-input").value;
+            const storedAuth = JSON.parse(localStorage.getItem("authObj"));
+            
+            // Check if OTP has already been used
+            if (storedAuth.accessStatus123) {
+                alert("You have already logged in with this OTP. Multiple logins are not allowed.");
+                return;
+            }
+            
+            // Validate OTP
+            if (enteredOTP === storedAuth.otp) {
+                // Set access status to true (OTP now used)
+                storedAuth.accessStatus123 = true;
+                localStorage.setItem("authObj", JSON.stringify(storedAuth));
+                
+                // Redirect to welcome page
+                window.location.href = "./welcome.html";
+                window.location.target = "_blank";
+            } else {
+                messageDiv.textContent = "Invalid OTP. Please try again.";
+                messageDiv.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>

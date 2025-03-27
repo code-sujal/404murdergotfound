@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Email App</title>
+    <link rel="stylesheet" href="email.css">
+    <link rel="icon" href="email.png">
+</head>
+<body>
+    <!-- 📩 Email Application Container -->
+    <div class="email-app">
+        <!-- 📌 Minimal Sidebar -->
+        <div class="sidebar">
+            <h2>Mailbox</h2>
+            <ul id="folders">
+                <li class="folder active" data-folder="inbox">
+                    <img src="inbox.png" alt="Inbox"> Inbox
+                </li>
+                <li class="folder" data-folder="sent">
+                    <img src="sent.png" alt="Sent"> Sent
+                </li>
+                <li class="folder" data-folder="drafts">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1060/1060379.png" alt="Drafts"> Drafts
+                </li>
+                <li class="folder" data-folder="spam">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6410/6410052.png" alt="Spam"> Spam
+                </li>
+                <li class="folder" data-folder="trash">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4021/4021663.png" alt="Trash"> Trash
+                </li>
+            </ul>
+        </div>
+
+        <!-- 📨 Main Email Section -->
+        <div class="main-content">
+            <!-- 🔍 Search Bar, Back Button and Profile Icon -->
+            <div class="search-container">
+                <button id="back-btn" title="Back to Welcome">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back">
+                </button>
+                <input type="text" id="search" placeholder="Search emails...">
+                <div id="search-suggestions" class="suggestions"></div>
+                <!-- Profile Icon -->
+                <div class="profile-icon" id="profile-icon">
+                    <img src="https://static.vecteezy.com/system/resources/previews/035/342/944/non_2x/ai-generated-woman-in-a-business-suit-free-photo.jpg" alt="Profile">
+                </div>
+                <!-- Profile Dropdown -->
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="profile-header">
+                        <img src="https://static.vecteezy.com/system/resources/previews/035/342/944/non_2x/ai-generated-woman-in-a-business-suit-free-photo.jpg" alt="Profile Picture" class="profile-picture">
+                        <h3>Detective Alice Harper</h3>
+                    </div>
+                    <p><strong>Email:</strong> alice.detective@citypd.com</p>
+                    <p><strong>Role:</strong> Detective</p>
+                    <p><strong>Department:</strong> City Police Department</p>
+                    <p><strong>Badge Number:</strong> 4729</p>
+                    <p><strong>Experience: 5+ years</strong></p>
+                    <p><strong>Star level : ⭐⭐⭐⭐</strong> </p>
+                </div>
+            </div>
+
+            <!-- 📂 Email Lists -->
+            <div class="email-list-container">
+                <h2 id="folder-title">Inbox</h2>  <!-- Dynamically Updated Folder Title -->
+                <div id="email-list"></div>
+            </div>
+        </div>
+
+        <!-- 📜 Email Detail View -->
+        <div id="email-detail" class="email-detail">
+            <button id="close-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/9068/9068678.png" alt="Close">
+            </button>
+        
+            <!-- 📧 Sender Info -->
+            <div class="email-header">
+                <img id="sender-image" src="" alt="Sender Image">
+                <div class="sender-info">
+                    <h3 id="sender-name"></h3>
+                    <p id="sender-email"></p>
+                    <p id="sent-date"></p>
+                </div>
+            </div>
+
+            <p id="email-date-time" class="email-date-time"></p>
+        
+            <!-- ✉️ Email Content -->
+            <h2 id="email-subject"></h2>
+            <p id="email-body"></p>
+        
+            <!-- 📎 Attachments -->
+            <div id="email-attachments" class="attachments"></div>
+        </div>
+    </div>
+
+    <script src="email.js"></script>
+</body>
+</html>

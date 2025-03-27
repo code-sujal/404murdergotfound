@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detective Files App</title>
+    <link rel="stylesheet" href="files.css">
+    <link rel="icon" href="files.png">
+    <!-- Windows 11 uses Segoe UI; we'll use it via a fallback -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- 📁 Files Application Container -->
+    <div class="files-app">
+        <!-- 🧭 Top Command Bar -->
+        <div class="command-bar">
+            <button id="home-back-btn" title="Back to Welcome">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home Back">
+            </button>
+            <div class="nav-controls">
+                <button id="back-btn" disabled title="Back">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271220.png" alt="Back">
+                </button>
+                <button id="forward-btn" disabled title="Forward">
+                    <img src="https://cdn-icons-png.flaticon.com/512/271/271228.png" alt="Forward">
+                </button>
+            </div>
+            <div class="breadcrumb">
+                <img src="https://img.icons8.com/?size=192&id=Jw9nt2gzEivq&format=png" alt="Folder Icon" class="breadcrumb-icon">
+                <span id="breadcrumb-path">Documents</span>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search files...">
+            </div>
+            <div class="view-toggle">
+                <button id="grid-view-btn" class="active" title="Grid View">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7160/7160906.png" alt="Grid View">
+                </button>
+                <button id="list-view-btn" title="List View">
+                    <img src="https://cdn-icons-png.flaticon.com/512/992/992695.png" alt="List View">
+                </button>
+            </div>
+        </div>
+
+        <!-- 📌 Sidebar -->
+        <div class="sidebar">
+            <ul id="folders">
+                <li class="folder active" data-folder="documents">
+                    <img src="docs.png" alt="Documents">
+                    <span>Notes</span>
+                </li>
+                <li class="folder" data-folder="images">
+                    <img src="https://img.icons8.com/fluent/512/photos.png" alt="Images">
+                    <span>Images</span>
+                </li>
+                <li class="folder" data-folder="case-files">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6818/6818810.png" alt="Case Files">
+                    <span>Unsolved Cases</span>
+                </li>
+                <li class="folder" data-folder="downloads">
+                    <img src="https://preview.redd.it/t4f6ysfremu11.png?auto=webp&s=ebe0e0b8b69b4d1d6d387e56569a484d6490b95f" alt="Downloads">
+                    <span>Downloads</span>
+                </li>
+                <li class="folder" data-folder="recycleBin">
+                    <img src="png-transparent-recycle-bin-logo-trash-recycling-bin-file-deletion-computer-file-recycle-bin-glass-recycling-waste-containment-thumbnail-removebg-preview.png" alt="Recycle Bin">
+                    <span>Recycle Bin</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 📄 Main Content -->
+        <div class="main-content">
+            <div id="file-list" class="grid-view"></div>
+        </div>
+
+        <!-- 📜 File Preview Modal -->
+        <div id="file-modal" class="file-modal">
+            <div class="modal-content">
+                <button id="close-modal-btn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9068/9068678.png" alt="Close">
+                </button>
+                <div class="file-header">
+                    <h3 id="file-name"></h3>
+                    <p id="file-meta"></p>
+                </div>
+                <div id="file-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="files.js"></script>
+</body>
+</html>

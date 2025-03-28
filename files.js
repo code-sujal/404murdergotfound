@@ -310,6 +310,12 @@ function loadFiles(folder, searchQuery = "") {
         return file.name.toLowerCase().includes(query);
     });
 
+
+     if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
     // Display filtered files
     files.forEach(file => {
         let fileElement = document.createElement("div");

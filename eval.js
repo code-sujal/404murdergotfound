@@ -7,7 +7,7 @@ const resultDiv = document.getElementById('result');
 let conversationStep = 0;
 let selectedSuspects = [];
 
-localStorage.setItem('evalauth',true);
+localStorage.setItem('evalauth','true');
 // Obfuscated correct answers using a hash function
 function generateCheckValue(str) {
   let hash = 0;

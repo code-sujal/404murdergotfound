@@ -136,6 +136,11 @@ function loadChat(chatId) {
     scrollToBottom();
 }
 
+ if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
 // Append message and optionally save to localStorage
 function appendMessage(type, text, save = true) {
     const messageDiv = document.createElement('div');

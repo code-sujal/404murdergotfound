@@ -187,6 +187,11 @@ function renderCases(filter = '') {
     });
 }
 
+ if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
 function showCaseDetails(index) {
     const c = cases[index];
     caseTitle.textContent = `${c.id} - ${c.name}`;

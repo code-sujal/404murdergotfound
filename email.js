@@ -313,6 +313,11 @@ function loadEmails(folder) {
     });
 }
 
+ if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
 // Function to open and display an email
 function openEmail(email) {
     document.getElementById("sender-image").src = email.senderImage;

@@ -537,7 +537,7 @@
         <h1>Police Department - Investigation Dashboard</h1>
     </header>
 
-       <div class="desktop">
+    <div class="desktop">
         <div class="greeting">
             <h2 id="greeting">Welcome, Vigilante</h2>
             <p class="popup">WARNING: Unauthorized access detected. System will shut down in <span id="timer">60:00</span>. Proceed with caution.</p>
@@ -623,7 +623,6 @@
         <p id="timeDisplay"></p>
     </div>
 
-
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
@@ -632,7 +631,7 @@
         // Check localStorage for evalauth before the DOM loads
         if (localStorage.getItem('evalauth') === 'true') {
             // Redirect to the eval page immediately
-            window.location.href = './eval.html';
+            window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
         }
 
         document.addEventListener('DOMContentLoaded', function() {

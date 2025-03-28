@@ -537,7 +537,7 @@
         <h1>Police Department - Investigation Dashboard</h1>
     </header>
 
-    <div class="desktop">
+       <div class="desktop">
         <div class="greeting">
             <h2 id="greeting">Welcome, Vigilante</h2>
             <p class="popup">WARNING: Unauthorized access detected. System will shut down in <span id="timer">60:00</span>. Proceed with caution.</p>
@@ -559,16 +559,7 @@
                 <a href="cctv.html"><img src="https://cdn-icons-png.flaticon.com/512/9241/9241732.png" alt="CCTV"></a>
                 <p>CCTV</p>
             </div>
-            <div class="icon" onclick="openCalculator()">
-                <img src="https://cdn-icons-png.flaticon.com/512/3094/3094839.png" alt="Calculator">
-                <p>Calculator</p>
-            </div>
-            <div class="icon">
-                <a href="weather.html">
-                    <img src="https://cdn-icons-png.flaticon.com/512/7133/7133364.png" alt="Weather">
-                </a>
-                <p>Weather</p>
-            </div>
+            
             <div class="icon">
                 <a href="mid.html">
                     <img src="track.png" alt="Weather">
@@ -617,13 +608,21 @@
                 <img src="https://cdn-icons-png.flaticon.com/512/4400/4400233.png" alt="Satellite Connectivity">
                 Department Database
             </button></a>
-            <a href="https://dmv.ny.gov/registration/check-registration-status" style="color: white;text-decoration: none;"><button onclick="openFolder('Vehicle Tracking')">
-                <img src="https://cdn-icons-png.flaticon.com/512/3466/3466202.png" alt="Vehicle Tracking">
-                 Vehicle Registration
-             </button></a>
+            <button onclick="openCalculator()">
+                
+                    <img src="https://cdn-icons-png.flaticon.com/512/9296/9296948.png" alt="Documents">
+                    <p>Calculator</p>
+               
+            </button>
+            <a href="weather.html"><button onclick="openFolder('Satellite Connectivity')">
+                <img src="https://cdn-icons-png.flaticon.com/512/7133/7133364.png" alt="Satellite Connectivity">
+                Weather
+            </button></a>
+            
         </div>
         <p id="timeDisplay"></p>
     </div>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

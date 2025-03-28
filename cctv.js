@@ -52,6 +52,11 @@ function swapFeed(sideFeed) {
     sideFeed.querySelector('.status-indicator').className = `status-indicator ${sideStatus}`;
 }
 
+ if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
 function zoomFeed(feed) {
     feed.classList.toggle('zoomed');
     if (feed.classList.contains('zoomed')) {

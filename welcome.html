@@ -631,9 +631,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         // Check localStorage for evalauth before the DOM loads
-        if (localStorage.getItem('evalauth') === true) {
+        if (localStorage.getItem('evalauth') === 'true') {
             // Redirect to the eval page immediately
-            window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+            window.location.href = './eval.html';
         }
 
         document.addEventListener('DOMContentLoaded', function() {

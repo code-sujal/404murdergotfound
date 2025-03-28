@@ -35,6 +35,11 @@ function goBack() {
   window.location.href = "welcome.html";
 }
 
+     if (localStorage.getItem('evalauth') === 'true') {
+                window.location.href = 'https://code-sujal.github.io/testing-mystery/eval.html';
+                return; // Stop further execution
+            }
+
   </script>
 </body>
 </html>
